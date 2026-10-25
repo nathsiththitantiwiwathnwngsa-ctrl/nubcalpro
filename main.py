@@ -62,7 +62,7 @@ def analyze_food_image(image_bytes):
     }
     """
     response = client.models.generate_content(
-        model='gemini-3.8-flash',
+        model='gemini-1.5-flash',
         contents=[
             genai.types.Part.from_bytes(data=image_bytes, mime_type='image/jpeg'),
             prompt
