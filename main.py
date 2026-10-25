@@ -98,7 +98,27 @@ def handle_text_message(event):
     user_text = event.message.text.strip()
     user_id = event.source.user_id
     user_name = get_line_user_name(user_id)
-    
+    # เช็กคำสั่งจาก Rich Menu
+    if user_text == "วางโปรแกรม":
+        reply_text = (
+            "ขอทราบข้อมูลเบื้องต้นหน่อยครับ:\n"
+            "- น้ำหนักปัจจุบัน (kg)\n"
+            "- ส่วนสูง (cm)\n"
+            "- อายุ\n"
+            "- เพศ\n"
+            "- เป้าหมาย (เช่น ลดไขมัน / เพิ่มกล้ามเนื้อ)\n\n"
+            "พิมพ์บอกข้อมูลเหล่านี้มาได้เลย เดี๋ยวผมให้ Gemini ช่วยวางโปรแกรมให้ครับ!"
+        )
+        send_reply(event.reply_token, reply_text)
+        return
+
+    elif user_text == "คำนวณสารอาหาร":
+        reply_text = (
+            "สามารถพิมพ์ชื่อเมนูอาหาร หรือส่งรูปถ่ายอาหารมาได้เลยครับ! 🥗\n"
+            "เดี๋ยว NubCal Pro ช่วยคำนวณแคลอรีและบันทึกลง Google Sheets ให้ทันทีครับ"
+        )
+        send_reply(event.reply_token, reply_text)
+        return
     if user_text.lower() in ["เมนู", "menu", "เริ่มต้น", "start", "สวัสดี", "hi"]:
         quick_reply_menu = QuickReply(
             items=[
