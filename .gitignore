@@ -1,0 +1,4 @@
+.env
+credentials.json
+_pycache_
+.vscode
