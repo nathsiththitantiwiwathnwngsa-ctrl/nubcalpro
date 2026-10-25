@@ -10,7 +10,7 @@ from linebot.v3.messaging import (
     QuickReply, QuickReplyItem, MessageAction
 )
 from linebot.v3.webhooks import MessageEvent, TextMessageContent, ImageMessageContent
-import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 import sheet_service
 
